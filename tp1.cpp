@@ -3,21 +3,19 @@
 
 using namespace std;
 
+int CalculDiviseur(int numerateur, int denominateur);
+std::string AffichageSimplifier(int numerateur, int denominateur);
+
 int main() {
     int numerateur, denominateur;
-    int CalculDiviseur(int numerateur, int denominateur);
-    int CalculDiviseur(int numerateur, int denominateur);
-
-    std::cout << "Donner le numerateur ";
+    
+    std::cout << "Donner le numerateur : ";
     std::cin >> numerateur;
-    std::cout << "Donner le denominateur ";
+    std::cout << "Donner le denominateur : ";
     std::cin >> denominateur;
-
     std::cout << AffichageSimplifier(numerateur, denominateur);
 
 }
-
-
 
 int CalculDiviseur(int numerateur, int denominateur) {
     int minimum = numerateur;
@@ -38,5 +36,4 @@ std::string AffichageSimplifier(int numerateur, int denominateur) {
     string retour;
     retour = to_string(nvnum) + " / " + to_string(nvdenom);
     return(retour);
-
 }
