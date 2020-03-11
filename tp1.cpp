@@ -2,12 +2,12 @@
 #include<iostream>
 
 using namespace std;
+int CalculDiviseur(int numerateur, int denominateur);
+string AffichageSimplifier(int numerateur, int denominateur);
 
 int main() {
     int numerateur, denominateur;
-    int CalculDiviseur(int numerateur, int denominateur);
-    int CalculDiviseur(int numerateur, int denominateur);
-
+   
     std::cout << "Donner le numerateur ";
     std::cin >> numerateur;
     std::cout << "Donner le denominateur ";
