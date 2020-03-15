@@ -15,7 +15,7 @@ int main() {
     std::cout << AffichageSimplifier(numerateur, denominateur);
 
 }
-
+//fonction calcul
 int CalculDiviseur(int numerateur, int denominateur) {
     int minimum = numerateur;
     int div = 1;
