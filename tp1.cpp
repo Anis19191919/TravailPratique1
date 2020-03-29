@@ -13,9 +13,6 @@ void EntrerFractions(int qteFraction, fraction* tabFractionIni);
 void afficherFracSimple(int qteFraction, fraction* tabFractionIni, fraction* tabFractionSimple);
 int PGCD(int numerateur, int denominateur);
 
-
-
-
 int main() {
     int qteFraction;
     cout << "Donner le nombre de fractions : ";
@@ -28,9 +25,9 @@ int main() {
 
     EntrerFractions(qteFraction, tabFractionIni);
     afficherFracSimple(qteFraction, tabFractionIni, tabFractionSimple);
-    delete tabFractionIni, tabFractionSimple;
+    delete[] tabFractionIni;
+    delete[] tabFractionSimple;
 }
-
 
 //calcule et retourne le PGDC de deux nombres entiers
 int CalculDiviseur(int numerateur , int denominateur) {
@@ -93,25 +90,16 @@ void afficherFracSimple(int qteFraction, fraction* tabFractionIni , fraction* ta
     }
 }
 
-
+//Fonction PGDC avec d'algorithme de Stein.
 int  PGCD(int num1, int num2) {
-    if (num1 == num2)
-        return num1;
-    if (num1 == 0 && num2 == 0)
-        return 0;
-    if (num1 == 0)
-        return num2;
-        if (num2 == 0)
-            return num1;
-        if (num1 % 2 == 0 && num2 % 2 == 0)
-            return(PGCD(num1 / 2, num2 / 2) * 2);
-        if (num1 % 2 == 0 && num2 % 2 != 0)
-            return PGCD(num1 / 2, num2);
-        if (num1 % 2 != 0 && num2 % 2 == 0)
-            return PGCD(num1, num2 / 2);
-        if (num1 % 2 != 0 && num2 % 2 != 0)
-            if (num1 >= num2)
-                return PGCD((num1 - num2) / 2, num2);
-            else
-                return PGCD((num2 - num1) / 2, num1);
+    if (num1 == num2)   return num1;
+    if (num1 == 0 && num2 == 0)    return 0;
+    if (num1 == 0)  return num2;
+    if (num2 == 0)  return num1;
+    if (num1 % 2 == 0 && num2 % 2 == 0)    return(PGCD(num1 / 2, num2 / 2) * 2);
+    if (num1 % 2 == 0 && num2 % 2 != 0)    return PGCD(num1 / 2, num2);
+    if (num1 % 2 != 0 && num2 % 2 == 0)    return PGCD(num1, num2 / 2);
+    if (num1 % 2 != 0 && num2 % 2 != 0)
+        if (num1 >= num2)      return PGCD((num1 - num2) / 2, num2);
+        else     return PGCD((num2 - num1) / 2, num1);
 }
