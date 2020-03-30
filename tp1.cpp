@@ -90,16 +90,25 @@ void afficherFracSimple(int qteFraction, fraction* tabFractionIni , fraction* ta
     }
 }
 
-//Fonction PGDC avec d'algorithme de Stein.
-int  PGCD(int num1, int num2) {
-    if (num1 == num2)   return num1;
-    if (num1 == 0 && num2 == 0)    return 0;
-    if (num1 == 0)  return num2;
-    if (num2 == 0)  return num1;
-    if (num1 % 2 == 0 && num2 % 2 == 0)    return(PGCD(num1 / 2, num2 / 2) * 2);
-    if (num1 % 2 == 0 && num2 % 2 != 0)    return PGCD(num1 / 2, num2);
-    if (num1 % 2 != 0 && num2 % 2 == 0)    return PGCD(num1, num2 / 2);
-    if (num1 % 2 != 0 && num2 % 2 != 0)
-        if (num1 >= num2)      return PGCD((num1 - num2) / 2, num2);
-        else     return PGCD((num2 - num1) / 2, num1);
+
+int  PGCD(int numerateur, int denominateur) {
+    if (numerateur == denominateur)
+        return numerateur;
+    if (numerateur == 0 && denominateur == 0)
+        return 0;
+    if (numerateur == 0)
+        return denominateur;
+        if (denominateur == 0)
+            return numerateur;
+        if (numerateur % 2 == 0 && denominateur % 2 == 0)
+            return(PGCD(numerateur / 2, denominateur / 2) * 2);
+        if (numerateur % 2 == 0 && denominateur % 2 != 0)
+            return PGCD(numerateur / 2, denominateur);
+        if (numerateur % 2 != 0 && denominateur % 2 == 0)
+            return PGCD(numerateur, denominateur / 2);
+        if (numerateur % 2 != 0 && denominateur % 2 != 0)
+            if (numerateur >= denominateur)
+                return PGCD((numerateur - denominateur) / 2, denominateur);
+            else
+                return PGCD((denominateur - numerateur) / 2, numerateur);
 }
